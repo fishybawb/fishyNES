@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
     texture = SDL_CreateTexture(renderer, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STATIC, SCREEN_WIDTH, SCREEN_HEIGHT);
     
     pixels = (int *)malloc(NES_WIDTH * NES_HEIGHT * sizeof(int));
-    memset(pixels, 255, NES_WIDTH * NES_HEIGHT * sizeof(int));
+    memset(pixels, 100, NES_WIDTH * NES_HEIGHT * sizeof(int));
 
 	dest.x = 192;
 	dest.y = 120;
