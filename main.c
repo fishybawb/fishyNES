@@ -9,6 +9,11 @@
 
 int main(int argc, char *argv[])
 {    
+	FILE *rom_file;
+	uint8_t header[16];
+	uint8_t prg_rom[0x4000];
+	uint8_t chr_rom[0x2000];
+	
     SDL_Window *window;
     SDL_Renderer *renderer;
     SDL_Texture *texture;
@@ -31,6 +36,12 @@ int main(int argc, char *argv[])
 	dest.y = 120;
 	dest.w = NES_WIDTH;
 	dest.h = NES_HEIGHT;
+
+	rom_file = fopen("donkey.nes", "rb");
+	fread(&header, 16, 1, rom_file);
+	fread(prg_rom, 0x4000, 1, rom_file);
+	fread(chr_rom, 0x2000, 1, rom_file);
+	fclose(rom_file);
 
     while(!quit)
     {
